@@ -79,7 +79,7 @@ const addMonthDays = (month, year) => {
             daysContainer.appendChild(singleDay);
         }
         if (firstDay === 1) {
-            for (i = 1; i < 32; i++) {
+            for (i = 1; i < 31; i++) {
                 daysContainer.children[i].innerHTML = i;
                 const styledDay =
                     daysContainer.children[currentDay].classList.add(
@@ -90,7 +90,7 @@ const addMonthDays = (month, year) => {
         }
 
         if (firstDay === 2) {
-            for (i = 2; i < 33; i++) {
+            for (i = 2; i < 32; i++) {
                 daysContainer.children[i].innerHTML = i - 1;
                 const styledDay =
                     daysContainer.children[currentDay + 1].classList.add(
@@ -99,7 +99,7 @@ const addMonthDays = (month, year) => {
             }
         }
         if (firstDay === 3) {
-            for (i = 3; i < 34; i++) {
+            for (i = 3; i < 33; i++) {
                 daysContainer.children[i].innerHTML = i - 2;
                 const styledDay =
                     daysContainer.children[currentDay + 2].classList.add(
@@ -108,7 +108,7 @@ const addMonthDays = (month, year) => {
             }
         }
         if (firstDay === 4) {
-            for (i = 4; i < 35; i++) {
+            for (i = 4; i < 34; i++) {
                 daysContainer.children[i].innerHTML = i - 3;
                 const styledDay =
                     daysContainer.children[currentDay + 3].classList.add(
@@ -117,7 +117,7 @@ const addMonthDays = (month, year) => {
             }
         }
         if (firstDay === 5) {
-            for (i = 5; i < 36; i++) {
+            for (i = 5; i < 35; i++) {
                 daysContainer.children[i].innerHTML = i - 4;
                 const styledDay =
                     daysContainer.children[currentDay + 4].classList.add(
@@ -126,7 +126,7 @@ const addMonthDays = (month, year) => {
             }
         }
         if (firstDay === 6) {
-            for (i = 6; i < 37; i++) {
+            for (i = 6; i < 36; i++) {
                 daysContainer.children[i].innerHTML = i - 5;
                 const styledDay =
                     daysContainer.children[currentDay + 5].classList.add(
@@ -135,7 +135,7 @@ const addMonthDays = (month, year) => {
             }
         }
         if (firstDay === 0) {
-            for (i = 0; i < 31; i++) {
+            for (i = 0; i < 30; i++) {
                 daysContainer.children[i].innerHTML = i;
                 const styledDay =
                     daysContainer.children[currentDay - 1].classList.add(
@@ -229,6 +229,80 @@ const addMonthDays = (month, year) => {
         // singleDay.setAttribute('class', 'day');
         // singleDay.setAttribute('key', i);
         // daysContainer.appendChild(singleDay);
+    } else {
+        for (i = 0; i < 42; i++) {
+            const singleDay = document.createElement('div');
+            singleDay.setAttribute('class', 'day');
+            singleDay.setAttribute('key', i);
+            daysContainer.appendChild(singleDay);
+
+            // console.log(singleDay);
+        }
+        if (firstDay === 1) {
+            for (i = 1; i < 29; i++) {
+                daysContainer.children[i].innerHTML = i;
+                const styledDay =
+                    daysContainer.children[currentDay].classList.add(
+                        'currentDay'
+                    );
+            }
+            console.log(currentDay);
+        }
+
+        if (firstDay === 2) {
+            for (i = 2; i < 30; i++) {
+                daysContainer.children[i].innerHTML = i - 1;
+                const styledDay =
+                    daysContainer.children[currentDay + 1].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
+        if (firstDay === 3) {
+            for (i = 3; i < 31; i++) {
+                daysContainer.children[i].innerHTML = i - 2;
+                const styledDay =
+                    daysContainer.children[currentDay + 2].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
+        if (firstDay === 4) {
+            for (i = 4; i < 32; i++) {
+                daysContainer.children[i].innerHTML = i - 3;
+                const styledDay =
+                    daysContainer.children[currentDay + 3].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
+        if (firstDay === 5) {
+            for (i = 5; i < 33; i++) {
+                daysContainer.children[i].innerHTML = i - 4;
+                const styledDay =
+                    daysContainer.children[currentDay + 4].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
+        if (firstDay === 6) {
+            for (i = 6; i < 34; i++) {
+                daysContainer.children[i].innerHTML = i - 5;
+                const styledDay =
+                    daysContainer.children[currentDay + 5].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
+        if (firstDay === 0) {
+            for (i = 0; i < 28; i++) {
+                daysContainer.children[i].innerHTML = i + 1;
+                const styledDay =
+                    daysContainer.children[currentDay - 1].classList.add(
+                        'currentDay'
+                    );
+            }
+        }
     }
 };
 
