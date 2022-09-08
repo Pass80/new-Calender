@@ -1,6 +1,17 @@
-const YearMonthes = [
+// get the date of today
+const today = new Date();
+// get the current month
+let currentMonth = today.getMonth();
+// get the current Year
+let currentYear = today.getFullYear();
+const selectYear = document.getElementById('year');
+const selectMonth = document.getElementById('month');
+const calender = document.getElementById('calender');
+const showYearAndMonth = document.getElementById('showHeader');
+
+const months = [
     'January',
-    'Feburary',
+    'February',
     'March',
     'April',
     'May',
@@ -13,316 +24,87 @@ const YearMonthes = [
     'December',
 ];
 
-const daysOfWeek = ['Sun', 'Mon', 'Teu', 'Wed', 'Thu', 'Fri', 'Sat'];
-const daysInHeader = document.getElementById('week-days');
-const daysContainer = document.getElementById('days');
-const daysofCurrentMonth = document.getElementsByClassName('day');
-// store the current month in variable
-let currentMonth = new Date().getMonth();
-let currentYear = new Date().getFullYear();
-console.log(currentMonth);
+const days = ['Sun', 'Mon', 'Teu', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-const currentDay = new Date().getDate();
-// const currentDay = 2;
-
-// store the day number of the current month in variable
-// const firstDay = new Date().getDate();
-
-// console.log(new Date().getDate());
-// console.log(currentMonth);
-
-let currentMonthDays = [];
-
-function next() {
-    while (daysContainer.firstChild) {
-        daysContainer.removeChild(daysContainer.firstChild);
+// function to generate a rang of years
+const generate_year_range = function (start, end) {
+    let years = '';
+    for (let year = start; year <= end; year++) {
+        years += `<option value= ${year}>${year}</options>`;
     }
-    console.log(daysContainer.children);
-    currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    console.log(currentMonth);
-
-    addMonthDays(currentMonth, currentYear);
-}
-
-function previous() {
-    while (daysContainer.firstChild) {
-        daysContainer.removeChild(daysContainer.firstChild);
-    }
-    console.log(daysContainer.children);
-    currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-    addMonthDays(currentMonth, currentYear);
-}
-
-const addMonthDays = (month, year) => {
-    //get the first day of the month
-    let firstDay = new Date(year, month).getDay();
-    console.log(firstDay);
-
-    // show the year and the month in the header area
-    document.getElementById('showHeader').innerHTML =
-        YearMonthes[month] + ' ' + year;
-
-    let i;
-
-    if (
-        currentMonth === 3 ||
-        currentMonth === 5 ||
-        currentMonth === 8 ||
-        currentMonth === 10
-    ) {
-        for (i = 0; i < 42; i++) {
-            const singleDay = document.createElement('div');
-            singleDay.setAttribute('class', 'day');
-            singleDay.setAttribute('key', i);
-            daysContainer.appendChild(singleDay);
-        }
-        if (firstDay === 1) {
-            for (i = 1; i < 31; i++) {
-                daysContainer.children[i].innerHTML = i;
-                const styledDay =
-                    daysContainer.children[currentDay].classList.add(
-                        'currentDay'
-                    );
-            }
-            console.log(currentDay);
-        }
-
-        if (firstDay === 2) {
-            for (i = 2; i < 32; i++) {
-                daysContainer.children[i].innerHTML = i - 1;
-                const styledDay =
-                    daysContainer.children[currentDay + 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 3) {
-            for (i = 3; i < 33; i++) {
-                daysContainer.children[i].innerHTML = i - 2;
-                const styledDay =
-                    daysContainer.children[currentDay + 2].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 4) {
-            for (i = 4; i < 34; i++) {
-                daysContainer.children[i].innerHTML = i - 3;
-                const styledDay =
-                    daysContainer.children[currentDay + 3].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 5) {
-            for (i = 5; i < 35; i++) {
-                daysContainer.children[i].innerHTML = i - 4;
-                const styledDay =
-                    daysContainer.children[currentDay + 4].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 6) {
-            for (i = 6; i < 36; i++) {
-                daysContainer.children[i].innerHTML = i - 5;
-                const styledDay =
-                    daysContainer.children[currentDay + 5].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 0) {
-            for (i = 0; i < 30; i++) {
-                daysContainer.children[i].innerHTML = i;
-                const styledDay =
-                    daysContainer.children[currentDay - 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-    } else if (
-        currentMonth === 0 ||
-        currentMonth === 2 ||
-        currentMonth === 4 ||
-        currentMonth === 6 ||
-        currentMonth === 7 ||
-        currentMonth === 9 ||
-        currentMonth === 11
-    ) {
-        for (i = 0; i < 42; i++) {
-            const singleDay = document.createElement('div');
-            singleDay.setAttribute('class', 'day');
-            singleDay.setAttribute('key', i);
-            daysContainer.appendChild(singleDay);
-
-            // console.log(singleDay);
-        }
-        if (firstDay === 1) {
-            for (i = 1; i < 32; i++) {
-                daysContainer.children[i].innerHTML = i;
-                const styledDay =
-                    daysContainer.children[currentDay].classList.add(
-                        'currentDay'
-                    );
-            }
-            console.log(currentDay);
-        }
-
-        if (firstDay === 2) {
-            for (i = 2; i < 33; i++) {
-                daysContainer.children[i].innerHTML = i - 1;
-                const styledDay =
-                    daysContainer.children[currentDay + 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 3) {
-            for (i = 3; i < 34; i++) {
-                daysContainer.children[i].innerHTML = i - 2;
-                const styledDay =
-                    daysContainer.children[currentDay + 2].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 4) {
-            for (i = 4; i < 35; i++) {
-                daysContainer.children[i].innerHTML = i - 3;
-                const styledDay =
-                    daysContainer.children[currentDay + 3].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 5) {
-            for (i = 5; i < 36; i++) {
-                daysContainer.children[i].innerHTML = i - 4;
-                const styledDay =
-                    daysContainer.children[currentDay + 4].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 6) {
-            for (i = 6; i < 37; i++) {
-                daysContainer.children[i].innerHTML = i - 5;
-                const styledDay =
-                    daysContainer.children[currentDay + 5].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 0) {
-            for (i = 0; i < 31; i++) {
-                daysContainer.children[i].innerHTML = i + 1;
-                const styledDay =
-                    daysContainer.children[currentDay - 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-
-        // singleDay.setAttribute('class', 'day');
-        // singleDay.setAttribute('key', i);
-        // daysContainer.appendChild(singleDay);
-    } else {
-        for (i = 0; i < 42; i++) {
-            const singleDay = document.createElement('div');
-            singleDay.setAttribute('class', 'day');
-            singleDay.setAttribute('key', i);
-            daysContainer.appendChild(singleDay);
-
-            // console.log(singleDay);
-        }
-        if (firstDay === 1) {
-            for (i = 1; i < 29; i++) {
-                daysContainer.children[i].innerHTML = i;
-                const styledDay =
-                    daysContainer.children[currentDay].classList.add(
-                        'currentDay'
-                    );
-            }
-            console.log(currentDay);
-        }
-
-        if (firstDay === 2) {
-            for (i = 2; i < 30; i++) {
-                daysContainer.children[i].innerHTML = i - 1;
-                const styledDay =
-                    daysContainer.children[currentDay + 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 3) {
-            for (i = 3; i < 31; i++) {
-                daysContainer.children[i].innerHTML = i - 2;
-                const styledDay =
-                    daysContainer.children[currentDay + 2].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 4) {
-            for (i = 4; i < 32; i++) {
-                daysContainer.children[i].innerHTML = i - 3;
-                const styledDay =
-                    daysContainer.children[currentDay + 3].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 5) {
-            for (i = 5; i < 33; i++) {
-                daysContainer.children[i].innerHTML = i - 4;
-                const styledDay =
-                    daysContainer.children[currentDay + 4].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 6) {
-            for (i = 6; i < 34; i++) {
-                daysContainer.children[i].innerHTML = i - 5;
-                const styledDay =
-                    daysContainer.children[currentDay + 5].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-        if (firstDay === 0) {
-            for (i = 0; i < 28; i++) {
-                daysContainer.children[i].innerHTML = i + 1;
-                const styledDay =
-                    daysContainer.children[currentDay - 1].classList.add(
-                        'currentDay'
-                    );
-            }
-        }
-    }
+    return years;
 };
 
-addMonthDays(currentMonth, currentYear);
-// console.log(daysContainer);
-// console.log(daysofCurrentMonth);
-// function showCalender(month, year) {
-//     let firstDay = new Date(year, month).getDay();
-//     document.getElementById('showHeader').innerHTML =
-//         YearMonthes[month] + ' ' + year;
-//     console.log(firstDay);
-// }
-
-// function to get how many days in the month
+//function to get how many days in the month
 function daysInMonth(iMonth, iYear) {
-    console.log(32 - new Date(iYear, iMonth, 32).getDate());
-
     return 32 - new Date(iYear, iMonth, 32).getDate();
 }
 
-// daysInMonth(0, 2022);
+// create a function which goes to the next month
+const next = () => {
+    currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
+    showCalender(currentMonth, currentYear);
+};
+// create a function which goes to the previous month
+const previous = () => {
+    currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+    showCalender(currentMonth, currentYear);
+};
 
-// showCalender(currentMonth, currentYear);
+// create a function which goes to specific month and year
+const jump = () => {
+    currentYear = parseInt(selectYear.value);
+    currentMonth = parseInt(selectMonth.value);
+    showCalender(currentMonth, currentYear);
+};
+
+const showCalender = function (month, year) {
+    let firstDay = new Date(year, month).getDay();
+    calender.innerHTML = '';
+    showYearAndMonth.innerHTML = months[month] + ' ' + year;
+    selectYear.value = year;
+    selectMonth.value = month;
+    // creating the cells
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+        let row = document.createElement('tr');
+        let cell;
+        let cellText;
+        for (j = 0; j < 7; j++) {
+            if (i === 0 && j < firstDay) {
+                cell = document.createElement('td');
+                cellText = document.createTextNode('');
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            } else if (date > daysInMonth(month, year)) {
+                break;
+            } else {
+                cell = document.createElement('td');
+                cell.setAttribute('data-date', date);
+                cell.setAttribute('data-month', month + 1);
+                cell.setAttribute('data-year', year);
+                cell.setAttribute('data-month_name', months[month]);
+                cell.className = 'date-picker';
+                cell.innerHTML = `<span>${date}<span/>`;
+                if (
+                    date === today.getDate() &&
+                    year === today.getFullYear() &&
+                    month === today.getMonth()
+                ) {
+                    cell.className = 'date-picker selected';
+                }
+                row.appendChild(cell);
+                date++;
+            }
+        }
+        calender.appendChild(row);
+    }
+};
+
+// generate a range of years starting from 1970 till 2050
+// and then insert the created years list in the select Tag
+selectYear.innerHTML = generate_year_range(1970, 2050);
+
+showCalender(currentMonth, currentYear);

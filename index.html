@@ -8,33 +8,76 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="calender">
-            <div class="month"><h2 id="showHeader"></h2></div>
-            <div class="week-days" id="week-days">
-                <div class="sun">Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
+        <section>
+            <div class="calender">
+                <div class="month"><h2 id="showHeader">September 2022</h2></div>
+                <div class="week-days" id="week-days">
+                    <div class="sun">Sun</div>
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div id="days" class="days">
+                    <table class="calender-table" id="calender"></table>
+                </div>
+                <div class="calender-footer">
+                    <img
+                        onclick="previous()"
+                        src="assets/photos/left-arrow.png"
+                        alt="leftArrow"
+                        class="left"
+                    />
+                    <div class="select-container">
+                        <label for="month">Jump To: </label>
+                        <select id="month" onchange="jump()">
+                            <option value="0">Jan</option>
+                            <option value="1">Feb</option>
+                            <option value="2">Mar</option>
+                            <option value="3">Apr</option>
+                            <option value="4">May</option>
+                            <option value="5">Jun</option>
+                            <option value="6">Jul</option>
+                            <option value="7">Aug</option>
+                            <option value="8">Sep</option>
+                            <option value="9">Oct</option>
+                            <option value="10">Nov</option>
+                            <option value="11">Dec</option>
+                        </select>
+                        <select id="year" onchange="jump()"></select>
+                    </div>
+                    <img
+                        onclick="next()"
+                        src="assets/photos/right-arrow.png"
+                        alt="rightArrow"
+                        class="right"
+                    />
+                </div>
             </div>
-            <div id="days" class="days"></div>
-            <div class="buttons">
-                <img
-                    onclick="previous()"
-                    src="assets/photos/left-arrow.png"
-                    alt="leftArrow"
-                    class="left"
-                />
-                <img
-                    onclick="next()"
-                    src="assets/photos/right-arrow.png"
-                    alt="rightArrow"
-                    class="right"
-                />
+            <div class="note-area">
+                <h2>Note taking app</h2>
+                <form>
+                    <fieldset>
+                        <legend>Add Note</legend>
+                        <label for="note">Note title</label>
+                        <input type="text" id="note" name="note" /><br /><br />
+                        <label for="note-text">Note text</label>
+                        <textarea
+                            id="note-text"
+                            name="note-text"
+                            rows="15"
+                            cols="55"
+                        >
+                        </textarea
+                        ><br /><br />
+
+                        <input type="submit" value="Submit" />
+                    </fieldset>
+                </form>
             </div>
-        </div>
+        </section>
 
         <script src="main.js"></script>
     </body>

@@ -4,16 +4,77 @@
     margin: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
+section {
+    display: flex;
+    width: 100%;
+}
+
+.note-area {
+    display: flex;
+    flex-direction: column;
+    width: 60rem;
+    margin-top: 4rem ;
+    background-color: #FBAC4B;
+    border: none;
+    overflow: none;
+}
+
+.note-area h2 {
+    font-size: 3rem;
+    margin: 1rem auto 0;
+}
+fieldset {
+    padding: 2rem;
+    border: 1rem solid #F99821;
+}
+
+form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.3rem;
+    
+}
+
+form legend {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    font-size: 2rem;
+}
+
+form input {
+    width: 100%;
+    height: 4rem;
+    
+}
+
+form textarea {
+    width: 100%;
+    
+}
+
 .calender {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 40%;
-    height: 60vh;
-    margin: 10rem auto;
-    background-color: rgb(14, 246, 169);
-    border-radius: 1rem;
+    margin-top: 4rem ;
+    margin-left: 4rem ;
+    background-color: #383C48;
+    border: none;
+    box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+    overflow: none;
 }
 
 .month {
@@ -24,7 +85,9 @@
 .month h2 {
     width: 50%;
     margin: 0 auto 1rem;
+    padding: 2rem 0 1rem 0;
     font-size: 3rem;
+    color: #FFFEFF;
 }
 
 .week-days {
@@ -33,7 +96,9 @@
     align-items: center;
     width: 100%;
     text-align: center;
-    background-color: rgb(5, 124, 84);
+    color: #FFFEFF;
+    background-color: #383C48;
+    padding-bottom: 0.5rem;
 }
 
 .week-days div {
@@ -49,36 +114,59 @@
     align-items: center;
     justify-content: flex-start;
     flex-wrap: wrap;
-    /* padding: 2rem; */
     width: 100%;
-    height: 60%;
     text-align: center;
-    background-color: aquamarine;
+    background-color: #FA9820;
 }
 
-.day {
-    font-size: 2rem;
-    width: 14.28%;
-    height: 18%;
+table {
+    width: 100%;
+    height: 42.5rem;
 }
-.day:hover {
+
+td {
+    width: 6.8rem;
+    height: 6.8rem;
+    font-size: 3rem;
+}
+
+td:hover {
     cursor: pointer;
-    background-color: rgb(14, 246, 169);
+    background-color: #b36f1c;
 }
 
-.buttons {
+.calender-footer {
     display: flex;
     justify-content: space-between;
+    background-color: #fbad4c;
     width: 100%;
-    height: 10%;
-    background-color: rgb(14, 246, 169);
-    border-radius: 1rem;
 }
 
-.buttons img {
+.select-container {
+     width:60%;
+     text-align: center;
+     margin-top: 1rem;
+     padding: 10px 0;
+}
+
+.select-container label {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.select-container select {
+    cursor: pointer;
     display: inline-block;
-    width: 15%;
-    height: 5vh;
+    background: #FEE1BE;
+    color: #070707;
+    padding: 5px 1em;
+    width: 25%;
+    
+}
+
+.calender-footer img {
+    display: inline-block;
+    width: 4.8rem;
     margin: 1rem;
 }
 .left:active {
@@ -95,21 +183,23 @@
     background-color: rgb(5, 124, 84);
 }
 
-.calender2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 5rem 5rem 5rem 5rem 5rem;
-    border: 1px solid black;
-    width: 35rem;
-    margin: 10rem auto;
-    background-color: rgb(14, 246, 169);
-    border-radius: 1rem;
-
-    align-items: center;
-    text-align: center;
+.date-picker.selected {
+    font-weight: bold;
+    outline: 2px solid #00bcd4;
 }
 
-.calender2 p {
-    font-size: 3rem;
-    border: 1px solid black;
+.date-picker.selected span {
+    border-bottom: 2px solid currentColor;
 }
+
+/* sunday */
+.date-picker:nth-child(1) {
+    color: red;
+}
+
+
+
+
+
+
+,#0E0F1B,#383C48, #FA9820,#383B47,#FFFEFF
